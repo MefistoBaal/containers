@@ -12,6 +12,7 @@ services:
       - "5432:5432"
     networks:
       - devops-net
+    # persistiendo en un volumen la base de datos en el folder local
     volumes:
       - ./pgsql-data:/var/lib/postgresql/data
   
@@ -20,14 +21,17 @@ services:
     container_name: devops-app
     build: .
     restart: always
+    # Añadiendo las variables de entorno que necesita la app para conectarse a la base de datos
     environment:
       DATABASE_HOST: pgsql
       DATABASE_PORT: 5432
       DATABASE_USERNAME: root
       DATABASE_PASSWORD: root
       DATABASE_NAME: test
+    # Exponiendo los puertos de la app 3000 interno y 8081 externo
     ports:
       - "8081:3000"
+    # Conectando la app a la red interna
     networks:
       - devops-net
     depends_on:
