@@ -11,6 +11,8 @@ Este repositorio de ejemplo contiene una aplicacion en [NestJS](https://nestjs.c
 
 Para desplegar este repositorio, basta con ejecutar el archivo [deploy.sh](deploy.sh)
 
+Por buenas practicas, el deploy completo usa docker compose
+
 ```bash
 ./deploy.sh
 ```
