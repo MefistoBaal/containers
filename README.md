@@ -33,3 +33,17 @@ Purgar los servicios junto a las carpetas de persistencia
 ```bash
 ./clean true
 ```
+
+---
+## Publish
+El ejecutable para publicar la imagen de docker en harbor es ```publish.sh```, hará un login al repositorio de Harbor, tageará la imagen de docker y luego la pusheará al repositorio de Harbor
+```bash
+./publish.sh
+```
+---
+## Known Issues
+Como problemas conocidos, suele pasar que los ejecutables no tengan permisos de ejecucion, para agregarlo, basta con ejecutar lo siguiente
+
+```bash
+chmod a+x *.sh
+```
