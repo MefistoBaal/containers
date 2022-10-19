@@ -19,9 +19,9 @@ describe('Users - /users (e2e)', () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [
         TypeOrmModule.forRoot({
-          type: 'mysql',
+          type: 'postgres',
           host: 'localhost',
-          port: 3307,
+          port: 5432,
           username: 'root',
           password: 'root',
           database: 'test',

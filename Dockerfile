@@ -8,5 +8,6 @@ FROM node:lts-alpine as runner
 LABEL ENVIRONMENT="production" AUTHOR="Santiago Hurtado"
 ENV ENV=prod
 WORKDIR /app
+COPY --from=builder /app .
 
 CMD [ "npm", "run", "start" ]

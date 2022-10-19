@@ -1,24 +1,39 @@
 version: "3"
 services:
-  mysql:
-    image: mysql:8
+  # Database
+  pgsql:
+    image: postgres
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: test
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: root
+      POSTGRES_DB: test
     ports:
-      - "3306:3306"
+      - "5432:5432"
+    networks:
+      - devops-net
+    volumes:
+      - ./pgsql-data:/var/lib/postgresql/data
+  
+  # Webservice
   app:
     container_name: devops-app
     build: .
     restart: always
     environment:
-      DATABASE_HOST: mysql
-      DATABASE_PORT: 3306
+      DATABASE_HOST: pgsql
+      DATABASE_PORT: 5432
       DATABASE_USERNAME: root
       DATABASE_PASSWORD: root
       DATABASE_NAME: test
     ports:
-      - "3000:3000"
+      - "8081:3000"
+    networks:
+      - devops-net
     depends_on:
-      - mysql
+      - pgsql
+
+# Red privada para los contenedores
+networks:
+  devops-net:
+    driver: bridge
