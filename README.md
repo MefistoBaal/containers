@@ -19,6 +19,8 @@ Por buenas practicas, el deploy completo usa docker compose
 
 El ejecutable construira la imagen de docker de NestJS, levantara la base de Datos en Postgresql y expondra un servicio REST-API en el puerto 8081, accesible en [http://localhost:8081](http://localhost:8081)
 
+Para validar que el serivcio esta recibiendo peticiones correctamente, basta con entrar a la siguiente url [http://localhost:8081/users](http://localhost:8081/users), encontrará que el servicio retornó un par de llaves vacias ```[]```, esto demuetra que retorna un arreglo vacio de usuario debido a que no hay datos en la DB
+
 ---
 ## CleanUp
 
