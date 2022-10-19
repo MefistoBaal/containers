@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Construyendo la imagen de docker para el serivicio principal
+# Este comando hace exactamente lo mismo que hacer
+# docker build -t devops-app .
 docker-compose build
 
 # Levantando los servicio principales en modo "detach"
